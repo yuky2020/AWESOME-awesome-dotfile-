@@ -72,7 +72,21 @@ tasklist.buttons = awful.util.table.join(
 -- Taglist widget
 --------------------------------------------------------------------------------
 local taglist = {}
-taglist.style = { separator = separator, widget = redflat.gauge.tag.blue.new, show_tip = true }
+
+taglist.style = { widget = redflat.gauge.tag.ruby.new, show_tip = true }
+
+-- double line taglist
+taglist.cols_num = 6
+taglist.rows_num = 1
+
+taglist.layout = wibox.widget {
+	expand          = true,
+	forced_num_rows = taglist.rows_num,
+	forced_num_cols = taglist.cols_num,
+    layout          = wibox.layout.grid,
+}
+
+-- buttons
 taglist.buttons = awful.util.table.join(
 	awful.button({         }, 1, function(t) t:view_only() end),
 	awful.button({ env.mod }, 1, function(t) if client.focus then client.focus:move_to_tag(t) end end),
@@ -82,6 +96,16 @@ taglist.buttons = awful.util.table.join(
 	awful.button({         }, 4, function(t) awful.tag.viewnext(t.screen) end),
 	awful.button({         }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
+
+-- some tag settings which indirectky depends on row and columns number of taglist
+taglist.names = {
+	"Web", "Term", "Code", "Edit", "WM", "Music"
+}
+
+local al = awful.layout.layouts
+taglist.layouts = {
+	al[5], al[6], al[6], al[4], al[3], al[3]
+}
 
 -- Textclock widget
 --------------------------------------------------------------------------------
@@ -231,8 +255,7 @@ awful.screen.connect_for_each_screen(
 		env.wallpaper(s)
 
 		-- tags
-		awful.tag({ "Web", "Term", "Edit", "Code", "MattShit" }, s, { al[5], al[6], al[6], al[4], al[3] })
-
+		awful.tag(taglist.names, s, taglist.layouts)
 		-- layoutbox widget
 		layoutbox[s] = redflat.widget.layoutbox({ screen = s })
 
@@ -244,7 +267,7 @@ awful.screen.connect_for_each_screen(
 
 		-- panel wibox
 		--Here we create the panel 
-		s.panel = awful.wibar({ position = "bottom",type = "dock" , screen = s, height = 29 })
+		s.panel = awful.wibar({ position = "bottom",type = "dock" , screen = s, height = 26 })
 
 		-- add widgets to the wibox
 		s.panel:setup {

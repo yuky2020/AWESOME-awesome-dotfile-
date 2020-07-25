@@ -104,7 +104,7 @@ function desktop:init(args)
 		sensors  = {
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, name = "root", args = "/"            },
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, name = "home", args = "/home"        },
-			{ meter_function = system.fs_info, maxm = 100, crit = 80, name = "Download", args = "/home/Download" },
+			{ meter_function = system.fs_info, maxm = 100, crit = 80, name = "Down", args = "/home/Downloads" },
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, name = "data", args = "/mnt/media"   },
 		},
 		timeout = 300

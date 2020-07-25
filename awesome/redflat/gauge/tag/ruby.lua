@@ -2,6 +2,7 @@
 --                                                   RedFlat tag widget                                              --
 -----------------------------------------------------------------------------------------------------------------------
 -- Custom widget to display tag info
+--Modded by Matteo Bianchi
 -----------------------------------------------------------------------------------------------------------------------
 
 -- Grab environment
@@ -23,9 +24,9 @@ local rubytag = { mt = {} }
 -----------------------------------------------------------------------------------------------------------------------
 local function default_style()
 	local style = {
-		width        = 50,
-		base = { pad = 5, height = 12, thickness = 2 },
-		mark = { pad = 10, height = 4 },
+		width        = 10,
+		base = { pad = 5, height = 10, thickness = 2 },
+		mark = { pad = 10, height = 2 },
 		color        = { main  = "#b1222b", gray  = "#575757", icon = "#a0a0a0", urgent = "#32882d" }
 	}
 
@@ -75,7 +76,6 @@ function rubytag.new(style)
 	-- Draw
 	------------------------------------------------------------
 	function widg:draw(_, cr, width, height)
-
 		-- state
 		local cl = data.state.active and style.color.main or style.color.gray
 		cr:set_source(color(cl))

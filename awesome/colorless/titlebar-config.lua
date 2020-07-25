@@ -58,7 +58,7 @@ function titlebar:init()
 	local style = {}
 
 	-- titlebar schemes
-	style.base   = redutil.table.merge(redutil.table.check(beautiful, "titlebar.base") or {}, { size = 8 })
+	style.base   = redutil.table.merge(redutil.table.check(beautiful, "titlebar.base") or {}, { size = 6 })
 	style.iconic = redutil.table.merge(style.base, { size = 24 })
 
 	-- titlebar elements styles
