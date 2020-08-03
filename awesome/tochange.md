@@ -6,17 +6,13 @@ This config is compatible with AwesomeWM version 4.3 and newer.
 
 ## Screenshot
 
-![purple and black abstract painting](https://images.unsplash.com/photo-1595364397663-fca4f075d796?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjkwODQwfQ "Paweł Czerwiński")
-
-<!--suppress HtmlDeprecatedAttribute --><p align="center"><a href="https://github.com/worron/awesome-config/wiki">Gallery</a></p>
-
-<!--suppress HtmlDeprecatedAttribute --><p align="center"><a href="https://youtu.be/_1M1Wv64JGA">Video Demo</a></p>
+In future release
 
 ## Description
 
 Advanced user config for `awesome` consist of a bunch of new widgets, 
 features, tiling schemes, and some reworked standard widgets. 
-This repository provide only config examples and themes. 
+This repository provide only config and instruction
 Main code base can be found in `redflat` submodule.
 
 #### Core Features
@@ -70,4 +66,4 @@ Simple way to do so with `git`
 $ git clone https://github.com/yuky2020/awesome-config.git ~/.config/awesome --recursive
 ```
 
-Then edit `rc.lua` to select wanted config.
+Then give a tray 
